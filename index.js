@@ -6,7 +6,8 @@ const writePkg = require('write-pkg')
 const chalk = require('chalk')
 const options = require('minimist')(process.argv.slice(2))
 
-readPkgUp().then(result => {
+// don't normalize package.json
+readPkgUp({normalize:false}).then(result => {
 	let {pkg} = result
 	const pkgPath = result.path
 	const gitInfo = {
@@ -14,9 +15,6 @@ readPkgUp().then(result => {
 		long: git.long(),
 		branch: git.branch()
 	}
-
-	delete pkg.readme
-	delete pkg._id
 
 	const updatedPkg = Object.assign({}, pkg, {
 		git: gitInfo
