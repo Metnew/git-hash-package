@@ -27,7 +27,7 @@
     "url": "https://github.com/Metnew/git-hash-package/issues"
   },
   "bin": {
-    "git-hash-package": "node ./index.js"
+    "git-hash-package": "./index.js"
   },
   "homepage": "https://github.com/Metnew/git-hash-package#readme",
   "dependencies": {
