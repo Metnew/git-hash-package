@@ -6,25 +6,28 @@ const chalk = require('chalk')
 const options = require('minimist')(process.argv.slice(2))
 
 readPkgUp().then(result => {
-	const {pkg} = result
+	let {pkg} = result
 	const pkgPath = result.path
-  console.log(git.short())
 	const gitInfo = {
 		short: git.short(),
 		long: git.long(),
 		branch: git.branch()
 	}
 
-  console.log('YYYYYYYYYYYYY\n\n\n\n')
-  console.log(gitInfo)
-  console.log(pkgPath)
+	delete pkg.readme
+	delete pkg._id
 
-	writePkg(pkgPath, {git: gitInfo}).then(() => {
+	const updatedPkg = Object.assign({}, pkg, {
+		git: gitInfo
+	})
+
+	writePkg(pkgPath, updatedPkg).then(() => {
 		if (options.verbose || options.v) {
 			const logMsg = `Git info in ${pkgPath} was updated:
-Short: ${chulk.green(gitInfo.short)}
-Long: ${chulk.yellow(gitInfo.long)}
-Branch: ${chulk.red(gitInfo.branch)}`
+Short: ${chalk.green(gitInfo.short)}
+Long: ${chalk.yellow(gitInfo.long)}
+Branch: ${chalk.red(gitInfo.branch)}`
+			console.log(logMsg)
 		}
 	})
 	// fs.writeFile(filepath, result, 'utf8' (writeErr) => {

@@ -18,7 +18,10 @@
     "versioning",
     "version"
   ],
-  "author": "Vladimir Metnew <vladimirmetnew@gmail.com>",
+  "author": {
+    "name": "Vladimir Metnew",
+    "email": "vladimirmetnew@gmail.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Metnew/git-hash-package/issues"
@@ -35,5 +38,10 @@
     "read-pkg": "^2.0.0",
     "read-pkg-up": "^2.0.0",
     "write-pkg": "^3.1.0"
+  },
+  "git": {
+    "short": "0076b95",
+    "long": "0076b950d9e9a83290eb75df1cf3ea6f944c7f44",
+    "branch": "master"
   }
 }
