@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 const fs = require('fs')
 const git = require('git-rev-sync')
 const readPkgUp = require('read-pkg-up')
