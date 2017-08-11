@@ -1,5 +1,7 @@
 # git-hash-package
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Metnew/git-hash-package.svg)](https://greenkeeper.io/)
+
 ### What does it do?
 This package gets info about your git repo (*long hash* + *short hash* + *branch*) and stores this data in your `package.json`.
 
