@@ -10,29 +10,29 @@ const path = require('path')
 // don't normalize package.json
 readPkgUp({normalize:false})
 	.then(result => {
-	let {pkg} = result
-	const pkgPath = result.path
-	const gitPath = path.dirname(pkgPath)
+    let {pkg} = result
+    const pkgPath = result.path
+    const gitPath = path.dirname(pkgPath)
 
-	const gitInfo = {
-		short: git.short(gitPath),
-		long: git.long(gitPath),
-		branch: git.branch(gitPath)
-	}
+    const gitInfo = {
+      short: git.short(gitPath),
+      long: git.long(gitPath),
+      branch: git.branch(gitPath)
+    }
 
-	const updatedPkg = Object.assign({}, pkg, {
-		git: gitInfo
-	})
+    const updatedPkg = Object.assign({}, pkg, {
+      git: gitInfo
+    })
 
-	writePkg(pkgPath, updatedPkg).then(() => {
-		if (options.verbose || options.v) {
-			const logMsg = `
+    writePkg(pkgPath, updatedPkg).then(() => {
+      if (options.verbose || options.v) {
+        const logMsg = `
 Git path: ${gitPath}			
 Git info in ${pkgPath} was updated:
 Short: ${chalk.green(gitInfo.short)}
 Long: ${chalk.yellow(gitInfo.long)}
 Branch: ${chalk.red(gitInfo.branch)}`
-			console.log(logMsg)
-		}
-	})
-})
+        console.log(logMsg)
+      }
+    })
+  });
