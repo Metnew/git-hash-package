@@ -11,9 +11,9 @@ readPkgUp({normalize:false}).then(result => {
 	let {pkg} = result
 	const pkgPath = result.path
 	const gitInfo = {
-		short: git.short(),
-		long: git.long(),
-		branch: git.branch()
+		short: git.short(process.cwd()),
+		long: git.long(process.cwd()),
+		branch: git.branch(process.cwd())
 	}
 
 	const updatedPkg = Object.assign({}, pkg, {
@@ -22,7 +22,9 @@ readPkgUp({normalize:false}).then(result => {
 
 	writePkg(pkgPath, updatedPkg).then(() => {
 		if (options.verbose || options.v) {
-			const logMsg = `Git info in ${pkgPath} was updated:
+			const logMsg = `
+CWD: ${process.cwd()}			
+Git info in ${pkgPath} was updated:
 Short: ${chalk.green(gitInfo.short)}
 Long: ${chalk.yellow(gitInfo.long)}
 Branch: ${chalk.red(gitInfo.branch)}`

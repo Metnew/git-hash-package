@@ -40,8 +40,8 @@
     "write-pkg": "^3.1.0"
   },
   "git": {
-    "short": "0076b95",
-    "long": "0076b950d9e9a83290eb75df1cf3ea6f944c7f44",
+    "short": "01bebd7",
+    "long": "01bebd765a5a83247c96c299e4c5a216e84a122e",
     "branch": "master"
   }
 }
