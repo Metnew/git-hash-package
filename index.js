@@ -27,7 +27,7 @@ readPkgUp({normalize:false})
 	writePkg(pkgPath, updatedPkg).then(() => {
 		if (options.verbose || options.v) {
 			const logMsg = `
-CWD: ${process.cwd()}			
+Git path: ${gitPath}			
 Git info in ${pkgPath} was updated:
 Short: ${chalk.green(gitInfo.short)}
 Long: ${chalk.yellow(gitInfo.long)}
