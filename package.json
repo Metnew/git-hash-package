@@ -1,6 +1,6 @@
 {
   "name": "git-hash-package",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Get git hash and set in package.json",
   "main": "index.js",
   "scripts": {
