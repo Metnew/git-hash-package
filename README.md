@@ -13,7 +13,7 @@ This module solves my issue.
 npm i git-hash-package
 ```
 
-Or if you want to run it globally(I haven't tested it yet):
+Or if you want to run it globally(Thanks to [@teebu](https://github.com/teebu) and his awesome PR):
 
 ```
   npm i -g git-hash-package
