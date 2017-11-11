@@ -5,37 +5,34 @@ const readPkgUp = require('read-pkg-up')
 const writePkg = require('write-pkg')
 const chalk = require('chalk')
 const options = require('minimist')(process.argv.slice(2))
+const path = require('path')
 
 // don't normalize package.json
-readPkgUp({normalize:false}).then(result => {
-	let {pkg} = result
-	const pkgPath = result.path
-	const gitInfo = {
-		short: git.short(),
-		long: git.long(),
-		branch: git.branch()
-	}
+readPkgUp({normalize:false})
+	.then(result => {
+    let {pkg} = result
+    const pkgPath = result.path
+    const gitPath = path.dirname(pkgPath)
 
-	const updatedPkg = Object.assign({}, pkg, {
-		git: gitInfo
-	})
+    const gitInfo = {
+      short: git.short(gitPath),
+      long: git.long(gitPath),
+      branch: git.branch(gitPath)
+    }
 
-	writePkg(pkgPath, updatedPkg).then(() => {
-		if (options.verbose || options.v) {
-			const logMsg = `Git info in ${pkgPath} was updated:
+    const updatedPkg = Object.assign({}, pkg, {
+      git: gitInfo
+    })
+
+    writePkg(pkgPath, updatedPkg).then(() => {
+      if (options.verbose || options.v) {
+        const logMsg = `
+Git path: ${gitPath}			
+Git info in ${pkgPath} was updated:
 Short: ${chalk.green(gitInfo.short)}
 Long: ${chalk.yellow(gitInfo.long)}
 Branch: ${chalk.red(gitInfo.branch)}`
-			console.log(logMsg)
-		}
-	})
-	// fs.writeFile(filepath, result, 'utf8' (writeErr) => {
-	//   if (writeErr) {
-	//     throw new Error(writeErr)
-	//   }
-	//
-	//   if (options.v || options.verbose) {
-	//     console.log(chalk.green())
-	//   }
-	// })
-})
+        console.log(logMsg)
+      }
+    })
+  });
