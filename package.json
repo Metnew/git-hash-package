@@ -1,10 +1,10 @@
 {
   "name": "git-hash-package",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Get git hash and set in package.json",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "git-hash-package"
   },
   "repository": {
     "type": "git",
@@ -31,17 +31,17 @@
   },
   "homepage": "https://github.com/Metnew/git-hash-package#readme",
   "dependencies": {
-    "chalk": "^2.0.1",
+    "chalk": "^2.3.0",
     "git-rev-sync": "^1.9.1",
     "minimist": "^1.2.0",
     "pkg-up": "^2.0.0",
-    "read-pkg": "^2.0.0",
-    "read-pkg-up": "^2.0.0",
+    "read-pkg": "^3.0.0",
+    "read-pkg-up": "^3.0.0",
     "write-pkg": "^3.1.0"
   },
   "git": {
-    "short": "d192de9",
-    "long": "d192de97418c9ee5f65e6894c10778ee0fe2037d",
+    "short": "52780ec",
+    "long": "52780ecb2af126f06b4a7abb7438389ccacda6d4",
     "branch": "master"
   }
 }
