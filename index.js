@@ -16,7 +16,8 @@ readPkgUp({normalize: false}).then(result => {
 	const gitInfo = {
 		short: git.short(gitPath),
 		long: git.long(gitPath),
-		branch: git.branch(gitPath)
+		branch: git.branch(gitPath),
+		tag: git.tag()
 	}
 
 	const updatedPkg = Object.assign({}, pkg, {
@@ -30,7 +31,8 @@ Git path: ${gitPath}
 Git info in ${pkgPath} was updated:
 Short: ${chalk.green(gitInfo.short)}
 Long: ${chalk.yellow(gitInfo.long)}
-Branch: ${chalk.red(gitInfo.branch)}`
+Branch: ${chalk.red(gitInfo.branch)}
+Tag: ${chalk.red(gitInfo.tag)}`
 			console.log(logMsg)
 		}
 	})
