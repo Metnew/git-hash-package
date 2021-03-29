@@ -35,8 +35,8 @@
     "git-rev-sync": "^1.9.1",
     "minimist": "^1.2.0",
     "pkg-up": "^2.0.0",
-    "read-pkg": "^3.0.0",
-    "read-pkg-up": "^3.0.0",
+    "read-pkg": "^6.0.0",
+    "read-pkg-up": "^8.0.0",
     "write-pkg": "^3.1.0"
   },
   "git": {
