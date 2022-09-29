@@ -32,7 +32,7 @@
   "homepage": "https://github.com/Metnew/git-hash-package#readme",
   "dependencies": {
     "chalk": "^2.3.0",
-    "git-rev-sync": "^1.9.1",
+    "git-rev-sync": "^3.0.2",
     "minimist": "^1.2.6",
     "pkg-up": "^2.0.0",
     "read-pkg": "^3.0.0",
